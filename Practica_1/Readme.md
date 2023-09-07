@@ -37,3 +37,9 @@ Para el desarrollo de esta compuerta, se tiene en cuenta la definicion de un mul
 ![Lab_Digital I-9_html_10141238](https://github.com/JuanSepu18/Grupo-Aval/assets/129451318/a6a86fce-5ab9-4d3f-92d8-cb44fb9471cc)
 
 ## DMux:
+
+Para el desarrollo de esta compuerta, nuevamente se indagó acerca del funcionamiento de un demultiplexor, y posteriormente se emplearon las compuertas And (2) y Not (1), donde se invería el selector y este era transmitido a las compuertas And, junto con las entradas, y de esta forma, se obtuvo el dempultiplexor.
+
+
+
+El desarrollo de las demas compuertas (Mux16, Mux4Way, Dmux4Way, etc..) Se emplearon a base de las compuertas anteriormente creadas, como el Mux y Dmux, y de esta manera se desarrollaron las 15 compuertas empleadas, a base de la compuerta Nand.
