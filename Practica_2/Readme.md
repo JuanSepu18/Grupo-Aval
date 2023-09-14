@@ -1,6 +1,7 @@
 # Descripción de la practica de laboratorio 2
 La practica de laboratorio No. 2 correspone al desarrollo e implementación de los proyectos 2 y 3 de nand2tetris, los cuales se encuentran en la carpeta de proyectos de la aplicación. Para el desarrollo de dichos proyectos se emplean las compuertas ya creadas en el proyecto 1, y a medida que se avanza en el desarrollo, se usa recursivamente lo anteriormente creado.
 
+***
 
 ## ¿Cuál es el objetivo de cada uno de esos proyectos con sus palabras y describa que debe hacer para desarrollarlo?
 
@@ -45,4 +46,32 @@ La lógica aritmética y la lógica secuencial son conceptos diferentes en el á
    - Ejemplos de aplicaciones de lógica secuencial incluyen contadores, registros de desplazamiento y sistemas de control.
 
 En resumen, la lógica aritmética se centra en operaciones numéricas, mientras que la lógica secuencial se enfoca en el control secuencial y la gestión de estados en sistemas digitales.
+
+***
+
+## Desarrollo de los chips
+A continuación se explica brevemente la forma en que se crearon los chips y su implementación en nand2tetris.
+
+### Proyecto 2:
+
+#### HalfAdder:
+#### FUllAdder:
+#### Add16:
+#### Inc16:
+#### Alu:
+
+### Proyecto 3:
+
+#### DFF:
+#### Bit:
+#### Register:
+#### RAM8:
+#### RAM64:
+#### RAM512:
+#### RAM4k:
+#### RAM8:
+#### RAM16k:
+#### RAM8:
+#### PC:
+
 
