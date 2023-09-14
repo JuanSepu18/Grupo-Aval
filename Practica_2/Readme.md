@@ -1,5 +1,7 @@
-# Descricpión de la practica de laboratorio 2
-...
+# Descripción de la practica de laboratorio 2
+La practica de laboratorio No. 2 correspone al desarrollo e implementación de los proyectos 2 y 3 de nand2tetris, los cuales se encuentran en la carpeta de proyectos de la aplicación. Para el desarrollo de dichos proyectos se emplean las compuertas ya creadas en el proyecto 1, y a medida que se avanza en el desarrollo, se usa recursivamente lo anteriormente creado.
+
+
 ## ¿Cuál es el objetivo de cada uno de esos proyectos con sus palabras y describa que debe hacer para desarrollarlo?
 
 El objetivo es construir los chips de cada capítulo en este caso el capítulo 1 y el capítulo 2 siguiendo los pasos de la guía, utilizando solo los componentes descritos en el libro y los que se han construido gradualmente. Cada paso es crucial para avanzar hacia la creación de una computadora completa que pueda ejecutar programas. Se debe prestar atención a la correcta interconexión de los componentes y a las pruebas en cada etapa del proceso.
