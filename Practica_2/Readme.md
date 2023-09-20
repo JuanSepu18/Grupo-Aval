@@ -49,29 +49,3 @@ En resumen, la lógica aritmética se centra en operaciones numéricas, mientras
 
 ***
 
-## Desarrollo de los chips
-A continuación se explica brevemente la forma en que se crearon los chips y su implementación en nand2tetris.
-
-### Proyecto 2:
-
-#### HalfAdder:
-#### FUllAdder:
-#### Add16:
-#### Inc16:
-#### Alu:
-
-### Proyecto 3:
-
-#### DFF:
-#### Bit:
-#### Register:
-#### RAM8:
-#### RAM64:
-#### RAM512:
-#### RAM4k:
-#### RAM8:
-#### RAM16k:
-#### RAM8:
-#### PC:
-
-
