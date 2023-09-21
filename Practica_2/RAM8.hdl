@@ -21,7 +21,7 @@ CHIP RAM8 {
     DMux8Way(in=load, sel=address, a=loadR1, b=loadR2, c=loadR3, d=loadR4, e=loadR5, f=loadR6, g=loadR7, h=loadR8);
 
     //ahora mandamos el load de cada registro y a cada uno va el in
-    //creando los 8 registros de 18 bits
+    //creando los 8 registros de 16 bits
     Register(in=in, load=loadR1, out=registro1);
     Register(in=in, load=loadR2, out=registro2);
     Register(in=in, load=loadR3, out=registro3);
