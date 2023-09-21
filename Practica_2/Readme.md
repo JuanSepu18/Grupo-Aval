@@ -53,33 +53,49 @@ A continuación se da una breve explicación del proceso de construcción de los
 
 ### HalfAdder: 
 Su función principal es sumar dos números binarios de un solo bit y producir dos salidas: una para la suma de los bits y otra para el acarreo (carry) que se genera cuando la suma supera el valor de 1. 
+Se construyó mediante un Xor entre las entradas y un And entre las mismas.
 
 ### FullAdder: 
 circuito lógico digital más avanzado que el Half Adder y se utiliza para sumar tres números binarios de un solo bit: dos bits de entrada y un bit de acarreo (carry) de una operación anterior. Su función principal es producir dos salidas: una para la suma de los tres bits de entrada y otra para el acarreo resultante de la operación.
+Se requieren 3 entradas, donde incialmente se emplea un HalfAdder para obtener sumAB, el cual se usa como entrada del siguiente HalfAdder junto con la entrada c. Por ultimo se realiza un Or entre los 2 carrys obtenidos anteriormente.
 
 ### Add16: 
 Se utilizan múltiples chips Full Adder (como mencionamos anteriormente) conectados en cascada. Cada Full Adder suma un par de bits correspondientes de los dos números de 16 bits y toma en cuenta el acarreo de la suma anterior. El resultado es una suma de 16 bits que puede ser representada en binario.
+Inicialmente se emplea un HalfAdder para poder obtene run carry inicial, posteriormente se realiza en cascada 15 Fulldders en los cuales se usa como carry el del anterior.
 
 ### Inc16:
 incluye una serie de sumadores de un solo bit (Full Adders) conectados en cascada para sumar 1 al número binario de 16 bits de entrada. El primer sumador suma 1 al bit menos significativo (LSB), y si este produce un acarreo, pasa al siguiente sumador, y así sucesivamente, hasta llegar al bit más significativo (MSB).
+Mediante un in[16] de entrada, se emplea un Add16, donde se declara todo los bits en 0 y se ejecuta la función principal de sumar 1.
 
 ### ALU:
 Realiza operaciones aritméticas y lógicas en datos binarios. Su función principal es ejecutar operaciones como suma, resta, AND, OR, NOT, y muchas otras, dependiendo de las necesidades de la instrucción de la CPU.
-
-### DFF:
-utilizando compuertas lógicas básicas, como compuertas AND, OR y NOT.
+Para la salide de ZX, se utilizó un Mux16 entre x y b como falso, y para la salida de NX se empleó un Not16 de la salida de ZX para luego ingresarlo en otro Mux16.
+Este procedimiento se repitió para las salidas de ZY y NY respectivamente, para luego proceder con las operaciones aritmeticas: Para la suma se usó un Add16 entre la salida de NX y NY, luego para la operación And se usó un And16 entre las salidas de NX y NY.
+Luego se seleccionó la funcion (f) medianre un Mux16 entre andXY y suma XY.
 
 ### Bit:
+Para la construcción de Bit se selecciona entre la salida anterior y la entrada actual mediante un Mux, para posteriormente guardar la selección y generar la salida mediante el DDF (Data Flip Flop).
 
 ### Register:
+Mediante este se almacenan 16 Bits en la memoria, es por esto que para su construcción en el codigo, se emplearon 16 Bits contrsuidos anteriormente, y de esta forma generar un registro de 1 Bit para cada uno de los 16.
 
-### RAM18:
+### RAM8: 
+Se trata de una memoria de 8x16, es decir, 8 registros de 16 bits cada uno. Teniendo esto en cuenta, se deduce que su construcción se basa en usar 8 Register los cuales son cada uno de 16 bits. 
+Inicialmente se pasa el numero a binario del adderss a decimal  mediante un DMux(Way, luego se manda el load de cada registro, creando los 8 Register. Por ultimo seleccionamos un registro para el Mux8Way16.
 
 ### RAM64:
+Se trata de una memoria de 64 registros, cada uno de 16 bits de ancho, es por esto que para su construcción empleamos 8 RAM8, y de esta forma obtenemos 64 registros.
+Inicialmente seleccionamos hacia que ram de 8 mandamos el load mediante un DMux8Way, luego hacemos la asignación del input en la ram de 8, mediante la implementación de 8 RAM8. Finalmente seleccionamos uno de los registros devueltos por la RAM8 mediante un Mux8Way16.
 
-### RAM512:
+### RAM512: 
+El procedidmiento es similar a la construcción de las anteriores RAM, en este caso se trata de una memoria de 512 registros, cada uno de 16 bits de ancho, es por esto que se emplean en su construcción 8 veces RAM64, para un total de 512.
+
+### RAM4k:
+El proceidmiento es similar a la construcción de las anteriores RAM, en este caso se trata de una memoria de 4000 registros, cada uno de 16 bits de ancho, es por esto que se emplean en su construcción 8 veces RAM512, para un total de 4000.
 
 ### RAM16k:
+Se trata de una memoria de 16k registros, cada uno de 16 bits de ancho, es por esto que para su construcción empleamos 4 RAM4k, y de esta forma obtenemos 16k registros.
+Inicialmente seleccionamos hacia que ram de 4k mandamos el load mediante un DMux4Way, luego hacemos la asignación del input en la ram de 4k, mediante la implementación de 4 RAM4k. Finalmente seleccionamos uno de los registros devueltos por la RAM4k mediante un Mux4Way16.
 
 ### PC:
-
+Primero se crea el incremento de out mediante un Inc16, posteriormente seleccionamos las 3 entradas de los posibles valores mediante un Mux8Way16 para finalmente guardar la selección y generar la salida mediante un Register.
