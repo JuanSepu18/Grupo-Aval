@@ -48,4 +48,38 @@ La lógica aritmética y la lógica secuencial son conceptos diferentes en el á
 En resumen, la lógica aritmética se centra en operaciones numéricas, mientras que la lógica secuencial se enfoca en el control secuencial y la gestión de estados en sistemas digitales.
 
 ***
+## Descripción de los chips
+A continuación se da una breve explicación del proceso de construcción de los chips de los proyectos 2 y 3 de nand2tetris, explicanco los integrados utilizados del proyecto 1.
+
+### HalfAdder: 
+Su función principal es sumar dos números binarios de un solo bit y producir dos salidas: una para la suma de los bits y otra para el acarreo (carry) que se genera cuando la suma supera el valor de 1. 
+
+### FullAdder: 
+circuito lógico digital más avanzado que el Half Adder y se utiliza para sumar tres números binarios de un solo bit: dos bits de entrada y un bit de acarreo (carry) de una operación anterior. Su función principal es producir dos salidas: una para la suma de los tres bits de entrada y otra para el acarreo resultante de la operación.
+
+### Add16: 
+Se utilizan múltiples chips Full Adder (como mencionamos anteriormente) conectados en cascada. Cada Full Adder suma un par de bits correspondientes de los dos números de 16 bits y toma en cuenta el acarreo de la suma anterior. El resultado es una suma de 16 bits que puede ser representada en binario.
+
+### Inc16:
+incluye una serie de sumadores de un solo bit (Full Adders) conectados en cascada para sumar 1 al número binario de 16 bits de entrada. El primer sumador suma 1 al bit menos significativo (LSB), y si este produce un acarreo, pasa al siguiente sumador, y así sucesivamente, hasta llegar al bit más significativo (MSB).
+
+### ALU:
+Realiza operaciones aritméticas y lógicas en datos binarios. Su función principal es ejecutar operaciones como suma, resta, AND, OR, NOT, y muchas otras, dependiendo de las necesidades de la instrucción de la CPU.
+
+### DFF:
+utilizando compuertas lógicas básicas, como compuertas AND, OR y NOT.
+
+### Bit:
+
+### Register:
+
+### RAM18:
+
+### RAM64:
+
+### RAM512:
+
+### RAM16k:
+
+### PC:
 
