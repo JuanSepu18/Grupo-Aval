@@ -65,12 +65,12 @@ CHIP ALU {
     //seleccionando la funcion (f)
     Mux16(a=andXY, b=sumaXY, sel=f, out=backOut);
 
-    //elijiendo slaida negaga o sin negar (no)
+    //eligiendo salida negada o sin negar (no)
     Not16(in=backOut, out=notOut);
     Mux16(a=backOut, b=notOut, sel=no, out=out, out[15]=ng, out[0..7] = paraElPrimerOr, out[8..15] = paraElSegundoOr);
     /*no podemos acceder al bus de una variable interna,
     solo las que se indica en IN, las de OUT tampoco se puede acceder
-    por tanto al generar la salida generacmos las que nesesitamos
+    por tanto al generar la salida generamos las que necesitamos
     */
 
 
@@ -80,7 +80,7 @@ CHIP ALU {
     da cero es cuando todos son cero, el resto da uno, 
     por tanto solo queda invertir la salida
     como solo tenemos or de 8 entre si, tocca aplicar
-    dos de estos y de ultimo un or normal entre anmas salidas
+    dos de estos y de ultimo un or normal entre ambas salidas
     */
     Or8Way(in=paraElPrimerOr, out=primerOr);
     Or8Way(in=paraElSegundoOr, out=segundoOr);
