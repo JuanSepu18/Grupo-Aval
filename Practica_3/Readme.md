@@ -28,24 +28,24 @@ El objetivo es desarrollar las actividades y programas propuestos en los dos pro
 ## Proyecto 4: Descripción de los programas
 A continuación se da una breve explicación del proceso de construcción de los programas del proyecto 4 de nand2tetris, explicando su funcionamiento basico de forma breve.
 
-### Mult: 
+- ### Mult: 
 Las 16 palabras RAM principales (RAM[0]...RAM[15]) se emplean en su desarrollo. Este programa calcula el valor R0*R1 y almacena el resultado en R2. Este cálculo se realiza mediante una secuencia de instrucciones que toma los valores contenidos en R0 y R1, los multiplica y luego guarda el resultado en la ubicación de memoria R2. Esta operación es fundamental en el funcionamiento de la computadora Hack y se utiliza comúnmente para realizar diversas tareas, como cálculos matemáticos y manipulación de datos.
 Inicialmente se determina si las posiciones 0 y 1 de la Ram son menores que cero, ya que en dicho caso, se termina el programa y el resultado será cero. Luego se hace uso de un contador para determinar la cantidad de veces que se va a sumar el numero de la ram 0, determinado por la ram 1.
 Posteriormente ejecuta las sumas respectivas disminuyendo el contador a medida que se multiplian los numeros, para posteriormente almacenar el resultado en la posición de la ram 2.
 
-### Fill: 
+- ### Fill: 
 Este programa ilustra de manera efectiva cómo se pueden manipular los dispositivos de pantalla y teclado a nivel básico en el contexto de la programación. Mediante un bucle infinito monitorea la entrada del teclado. Cuando se detecta la pulsación de una tecla, el programa procede a oscurecer la pantalla, es decir, pone en negro cada píxel, esto es así mientras se siga presionando.
 Inicialmente se almacena la posición en la que screen se encuentra iterando y esta al tanto de presionar una tecla, donde si hay algo en el KBD almacena el color negro, y si no hay nada (cero) almacena el color blanco. Luego salta a mostrar en la pantalla tomando la posicion almacenada y mostrando el color, moviendo la posición +1 para rellenar la pantalla.
 
 ## Proyecto 5: Descripción de los chips
 A continuación se da una breve explicación del proceso de construcción de los chips del proyecto 5 de nand2tetris, explicando los componentes utilizados y su funcionamiento.
 
-### Memory:
+- ### Memory:
 Primero se crea el incremento de out mediante un Inc16, posteriormente seleccionamos las 3 entradas de los posibles valores mediante un Mux8Way16 para finalmente guardar la selección y generar la salida mediante un Register.
 
-### CPU:
+- ### CPU:
 Primero se crea el incremento de out mediante un Inc16, posteriormente seleccionamos las 3 entradas de los posibles valores mediante un Mux8Way16 para finalmente guardar la selección y generar la salida mediante un Register.
 
-### Computer:
+- ### Computer:
 Primero se crea el incremento de out mediante un Inc16, posteriormente seleccionamos las 3 entradas de los posibles valores mediante un Mux8Way16 para finalmente guardar la selección y generar la salida mediante un Register.
 
