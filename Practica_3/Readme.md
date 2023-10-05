@@ -3,7 +3,7 @@ La practica de laboratorio No. 3 corresponde al desarrollo e implementación de 
 
 ***
 
-## ¿Por qué el lenguaje de máquina es importante para definir la arquitectura computacional?
+## Pregunta bonus: ¿Por qué el lenguaje de máquina es importante para definir la arquitectura computacional?
 
 El lenguaje de máquina o código máquina es el sistema de códigos directamente interpretable por un circuito microprogramable, como el microprocesador de una computadora o el microcontrolador de un autómata. Este lenguaje está compuesto por un conjunto de instrucciones que determinan acciones a ser tomadas por la máquina.
 Es decir, esto es importante ya que es el nivel más bajo de programación que puede entender directamente una máquina. Este lenguaje al ser un conjunto de instrucciones binarias permite la comunicación directa de la CPU con otros componentes de hardware como lo puede ser la memoria ram.
@@ -29,12 +29,13 @@ El objetivo es desarrollar las actividades y programas propuestos en los dos pro
 A continuación se da una breve explicación del proceso de construcción de los programas del proyecto 4 de nand2tetris, explicando su funcionamiento basico de forma breve.
 
 ### Mult: 
-Su función principal es sumar dos números binarios de un solo bit y producir dos salidas: una para la suma de los bits y otra para el acarreo (carry) que se genera cuando la suma supera el valor de 1. 
-Se construyó mediante un Xor entre las entradas y un And entre las mismas.
+Las 16 palabras RAM principales (RAM[0]...RAM[15]) se emplean en su desarrollo. Este programa calcula el valor R0*R1 y almacena el resultado en R2. Este cálculo se realiza mediante una secuencia de instrucciones que toma los valores contenidos en R0 y R1, los multiplica y luego guarda el resultado en la ubicación de memoria R2. Esta operación es fundamental en el funcionamiento de la computadora Hack y se utiliza comúnmente para realizar diversas tareas, como cálculos matemáticos y manipulación de datos.
+Inicialmente se determina si las posiciones 0 y 1 de la Ram son menores que cero, ya que en dicho caso, se termina el programa y el resultado será cero. Luego se hace uso de un contador para determinar la cantidad de veces que se va a sumar el numero de la ram 0, determinado por la ram 1.
+Posteriormente ejecuta las sumas respectivas disminuyendo el contador a medida que se multiplian los numeros, para posteriormente almacenar el resultado en la posición de la ram 2.
 
 ### Fill: 
-circuito lógico digital más avanzado que el Half Adder y se utiliza para sumar tres números binarios de un solo bit: dos bits de entrada y un bit de acarreo (carry) de una operación anterior. Su función principal es producir dos salidas: una para la suma de los tres bits de entrada y otra para el acarreo resultante de la operación.
-Se requieren 3 entradas, donde incialmente se emplea un HalfAdder para obtener sumAB, el cual se usa como entrada del siguiente HalfAdder junto con la entrada c. Por ultimo se realiza un Or entre los 2 carrys obtenidos anteriormente.
+Este programa ilustra de manera efectiva cómo se pueden manipular los dispositivos de pantalla y teclado a nivel básico en el contexto de la programación. Mediante un bucle infinito monitorea la entrada del teclado. Cuando se detecta la pulsación de una tecla, el programa procede a oscurecer la pantalla, es decir, pone en negro cada píxel, esto es así mientras se siga presionando.
+Inicialmente se almacena la posición en la que screen se encuentra iterando y esta al tanto de presionar una tecla, donde si hay algo en el KBD almacena el color negro, y si no hay nada (cero) almacena el color blanco. Luego salta a mostrar en la pantalla tomando la posicion almacenada y mostrando el color, moviendo la posición +1 para rellenar la pantalla.
 
 ## Proyecto 5: Descripción de los chips
 A continuación se da una breve explicación del proceso de construcción de los chips del proyecto 5 de nand2tetris, explicando los componentes utilizados y su funcionamiento.
