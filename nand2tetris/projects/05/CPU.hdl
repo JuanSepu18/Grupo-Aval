@@ -1,0 +1,91 @@
+// This file is part of www.nand2tetris.org
+// and the book "The Elements of Computing Systems"
+// by Nisan and Schocken, MIT Press.
+// File name: projects/05/CPU.hdl
+
+/**
+ * The Hack CPU (Central Processing unit), consisting of an ALU,
+ * two registers named A and D, and a program counter named PC.
+ * The CPU is designed to fetch and execute instructions written in 
+ * the Hack machine language. In particular, functions as follows:
+ * Executes the inputted instruction according to the Hack machine 
+ * language specification. The D and A in the language specification
+ * refer to CPU-resident registers, while M refers to the external
+ * memory location addressed by A, i.e. to Memory[A]. The inM input 
+ * holds the value of this location. If the current instruction needs 
+ * to write a value to M, the value is placed in outM, the address 
+ * of the target location is placed in the addressM output, and the 
+ * writeM control bit is asserted. (When writeM==0, any value may 
+ * appear in outM). The outM and writeM outputs are combinational: 
+ * they are affected instantaneously by the execution of the current 
+ * instruction. The addressM and pc outputs are clocked: although they 
+ * are affected by the execution of the current instruction, they commit 
+ * to their new values only in the next time step. If reset==1 then the 
+ * CPU jumps to address 0 (i.e. pc is set to 0 in next time step) rather 
+ * than to the address resulting from executing the current instruction. 
+
+
+ La CPU (Unidad Central de Proceso) de Hack, compuesta por una ALU,
+ dos registros denominados A y D, y un contador de programa denominado 
+ PC. La CPU está diseñada para obtener y ejecutar instrucciones escritas
+  en el lenguaje de máquina Hack. En concreto, funciona de la siguiente 
+  manera Ejecuta la instrucción introducida de acuerdo con la especificación 
+  del lenguaje de máquina Hack. D y A en la especificación del lenguaje se 
+  refieren a los registros residentes en la CPU, mientras que M se refiere 
+  a la posición de memoria externa a la que se dirige A, es decir, a Memory[A]. 
+  La entrada inM contiene el valor de esta posición. Si la instrucción actual 
+  necesita escribir un valor en M, el valor se coloca en outM, la dirección 
+  de la ubicación de destino se coloca en la salida addressM, y se activa el 
+  bit de control writeM. (Cuando writeM==0, cualquier valor puede aparecer en 
+  outM). Las salidas outM y writeM son combinacionales: se ven afectadas 
+  instantáneamente por la ejecución de la instrucción actual. Las salidas 
+  addressM y pc son de reloj: aunque se ven afectadas por la ejecución de la 
+  instrucción actual, se comprometen con sus nuevos valores sólo en el 
+  siguiente paso de tiempo. Si reset==1 entonces la CPU salta a la 
+  dirección 0 (es decir, pc se pone a 0 en el siguiente paso de tiempo) 
+  en lugar de  que a la dirección resultante de ejecutar la instrucción actual.
+
+
+ */
+
+CHIP CPU {
+
+    IN  inM[16],         // M value input  (M = contents of RAM[A])
+        instruction[16], // Instruction for execution
+        reset;           // Signals whether to re-start the current
+                         // program (reset==1) or continue executing
+                         // the current program (reset==0).
+
+    OUT outM[16],        // M value output
+        writeM,          // Write to M? 
+        addressM[15],    // Address in data memory (of M)
+        pc[15];          // address of next instruction
+
+    PARTS:
+    //hacemos el primer mux para seleccionar entre la instruccion y la salida del alu
+    Mux16(a=instruction, b=outALU, sel=instruction[15], out=inAregister);
+
+    //guardamos el registro A
+    ARegister(in=inAregister, load=instruction[5], out=A);
+
+    //segundo mux entre inM y el registro A
+    Mux16(a=inM, b=A, sel=instruction[11], out=inALU);
+
+    //registro D
+    DRegister(in=outALU, load=instruction[4], out=D);
+
+    //calculo entre la entrada de ALU, y el registro D, con entrada de C's
+    ALU(x=inALU, y=D, 
+    zx=instruction[11], 
+    nx=instruction[10], 
+    zy=instruction[9], 
+    ny=instruction[8], 
+    f=instruction[7], 
+    no=instruction[6],
+
+    out=outALU,
+    out=outM, 
+    zr=zrALU, 
+    ng=ngALU
+    );
+}
