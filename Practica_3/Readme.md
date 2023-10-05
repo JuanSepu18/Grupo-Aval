@@ -5,6 +5,10 @@ La practica de laboratorio No. 3 corresponde al desarrollo e implementación de 
 
 ## ¿Por qué el lenguaje de máquina es importante para definir la arquitectura computacional?
 
+El lenguaje de máquina o código máquina es el sistema de códigos directamente interpretable por un circuito microprogramable, como el microprocesador de una computadora o el microcontrolador de un autómata. Este lenguaje está compuesto por un conjunto de instrucciones que determinan acciones a ser tomadas por la máquina.
+Es decir, esto es importante ya que es el nivel más bajo de programación que puede entender directamente una máquina. Este lenguaje al ser un conjunto de instrucciones binarias permite la comunicación directa de la CPU con otros componentes de hardware como lo puede ser la memoria ram.
+La correcta comprensión de este lenguaje es esencial para poder diseñar de la manera mas eficiente la arquitectura del sistema informático, permitiendo optimizar el rendimiento y la ejecución de programas.
+
 ***
 
 ## ¿Cuál es el objetivo de cada uno de esos proyectos con sus palabras y describa que debe hacer para desarrollarlo?
@@ -12,8 +16,8 @@ La practica de laboratorio No. 3 corresponde al desarrollo e implementación de 
 El objetivo es desarrollar las actividades y programas propuestos en los dos proyectos a resolver, esto empleando el lenguaje ensamblador Hack para el desarrollo de el proyecto 4, y su posterior implementación para la construcción de los dispositivos del proyecto 5.
 
 #### Proyecto 4: Construcción de los programas descritos
-- Comenzar construyendo los chips básicos descritos en el Capítulo 1, como compuertas lógicas (NAND, NOT, AND, OR, XOR), multiplexores, demultiplexores y sumadores de bits de medio y completo.
-- Utilizar estos chips como bloques de construcción para implementar chips más complejos.
+- En este proyecto se propone como objetivo la programación de bajo nivel de la maquina, teniendo un uso de la plataforma Hack proporcionada por nand2tetris. Tambien, se otorga una vista de la ejecución del codigo ninario nativo, y su comportamiento mediante la ejecución del lenguaje de maquina.
+- Se desarrollan los programas de Mult (programa multiplicador de las entradas) y Fill (programa que rellena la pnatalla de negro al dar click an alguna area), mediante el lenguaje ensamblador Hack.
 
 #### Proyecto 5: Construcción de los chips descritos
 - Continuar con la construcción de chips más avanzados descritos en el Capítulo 2, como registros de 16 bits, registros de acceso, contadores, y la Unidad de Control.
