@@ -9,6 +9,9 @@ El lenguaje de máquina o código máquina es el sistema de códigos directament
 Es decir, esto es importante ya que es el nivel más bajo de programación que puede entender directamente una máquina. Este lenguaje al ser un conjunto de instrucciones binarias permite la comunicación directa de la CPU con otros componentes de hardware como lo puede ser la memoria ram.
 La correcta comprensión de este lenguaje es esencial para poder diseñar de la manera mas eficiente la arquitectura del sistema informático, permitiendo optimizar el rendimiento y la ejecución de programas.
 
+![lenguajeMaquina](https://github.com/JuanSepu18/Grupo-Aval/assets/129451318/a838626f-9764-4aa1-b4e5-334ff29186ef)
+
+
 ***
 
 ## ¿Cuál es el objetivo de cada uno de esos proyectos con sus palabras y describa que debe hacer para desarrollarlo?
