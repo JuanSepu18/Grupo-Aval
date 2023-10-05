@@ -19,5 +19,27 @@ CHIP Computer {
     IN reset;
 
     PARTS:
-    // Put your code here:
+    //esta conformado por tres partes: la memoria, la rom y la cpu
+
+    //Primero la rom32k para la cual va a suministrar las instrucciones
+    //como entrada tiene el pc, la cual es la posicion de la instruccion
+    //y la salida de esta la cual es las instrucciones
+    ROM32K(address=pc, out=instruction);
+
+    //conectamos esta a la cpu, la cual va a obtener las instrucciones
+    //inM es suministrada por la memoria
+    //instruction es la suministrada por la ROM
+    //reset es una entrada
+    //outM es la salida que arroja
+    //writeM indica si se carga o no
+    //addresM es la direccion en la memoria
+    //pc retroalimenta la ROM para seguir mandando instrucciones
+    CPU(inM=outMemory, instruction=instruction, reset=reset, outM=inMemory, writeM=writeInMemory, addressM=addressInMemory, pc=pc);
+
+    //por ultimo la memoria, suministra y guarda los datos de la cpu
+    //in en la memoria es la entrada de valor en la memoria
+    //load, es para cargar o no en la memoria, para eso se usa wirte
+    //address es la direcciones en la memoria que le indicque la cpu
+    //out es la salida de la memoria para suministrar lo pedido por cpu
+    Memory(in=inMemory, load=writeInMemory, address=addressInMemory, out=outMemory);
 }

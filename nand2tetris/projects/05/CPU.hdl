@@ -77,7 +77,7 @@ CHIP CPU {
     Or(a=instructionA, b=instruction[5], out=loadA);
 
     //guardamos el registro A
-    ARegister(in=inAregister, load=loadA, out=A, out[0..14]=addressM);
+    ARegister(in=inRegisterA, load=loadA, out=A, out[0..14]=addressM);
     //nota, el addressM es el mismo A, pero este colo almacena 15 bits y no 16, el bit
     //numero 15 (A[15]) deriva de opcode, por tanto solo tomaremos del 0 al 14
     // es decir A[0..14]
@@ -170,5 +170,5 @@ CHIP CPU {
 
     //la entrada de PC es el registro de A y la salida es de 15 bits, sin
     //usar lo derivada de upcode, es decir out[0..14] y el reset es una entrada
-    PC(in=A, load=loadPC, inc=incrementPC, reset=reset, out[0..14]=PC);
+    PC(in=A, load=loadPC, inc=incrementPC, reset=reset, out[0..14]=pc);
 }
