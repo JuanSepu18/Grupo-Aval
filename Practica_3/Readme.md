@@ -49,8 +49,10 @@ para su construcción primero se selecciona en que parte se carga la orden, ya s
 Posteriormente mediantte el chip Ram16k, le pasamos la entrada y si debe o no cargarse en la Ram, para luego mandarlo a la pantalla (Screen) y al teclado (KeyBoard). Por ultimo, se realiza el proceso inverso mandando la salida adecuada mediante un Mux4Way16.
 
 - ### CPU:
-Primero se crea el incremento de out mediante un Inc16, posteriormente seleccionamos las 3 entradas de los posibles valores mediante un Mux8Way16 para finalmente guardar la selección y generar la salida mediante un Register.
+La CPU de Hack, consta de una ALU (Unidad Aritmético-Lógica), dos registros denominados A y D, y un contador de programa llamado PC. Esta CPU está diseñada para adquirir e implementar instrucciones codificadas en el lenguaje de máquina Hack. Su funcionamiento se describe de la siguiente manera: ejecuta la instrucción actual de acuerdo con las especificaciones del lenguaje de máquina Hack. Las referencias a D y A en el lenguaje de máquina se relacionan con los registros integrados en la propia CPU, mientras que M se refiere a la posición de memoria externa apuntada por A, es decir, a Memory[A].
 
 - ### Computer:
-Primero se crea el incremento de out mediante un Inc16, posteriormente seleccionamos las 3 entradas de los posibles valores mediante un Mux8Way16 para finalmente guardar la selección y generar la salida mediante un Register.
+La computadora HACK se compone de tres componentes principales: la CPU, la ROM y la RAM. Cuando el reinicio se encuentra en su estado inicial (0), se procede a ejecutar el programa almacenado en la memoria ROM de la computadora. No obstante, si el reset se activa a 1, se reinicia la ejecución del programa actual.
+
+Por lo tanto, para iniciar la ejecución de un programa, se requiere que el usuario presione el botón de reset tanto en su posición "arriba" (1) como en su posición "abajo" (0). A partir de este momento, el usuario queda a la merced del software. En particular, dependiendo del código del programa en ejecución, la pantalla puede mostrar resultados específicos y el usuario tiene la capacidad de interactuar con la computadora mediante el teclado.
 
