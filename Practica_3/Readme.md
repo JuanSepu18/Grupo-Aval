@@ -20,13 +20,13 @@ El objetivo es desarrollar las actividades y programas propuestos en los dos pro
 - Se desarrollan los programas de Mult (programa multiplicador de las entradas) y Fill (programa que rellena la pnatalla de negro al dar click an alguna area), mediante el lenguaje ensamblador Hack.
 
 #### Proyecto 5: Construcción de los chips descritos
-- Continuar con la construcción de chips más avanzados descritos en el Capítulo 2, como registros de 16 bits, registros de acceso, contadores, y la Unidad de Control.
-- Utilizar los chips construidos en el Capítulo 1 junto con estos nuevos chips para crear componentes más complejos.
+- En este proyecto se propone como objetivo la construcción de la plataforma Hack Hardware completa, ya que implementa los chips creados en proyectos anteriores (como por ejemplo AlU y RAM) para la implementación de chips mas complejos, es decir, juntaremos todos los chips y programas creados anteriormente para este proyecto.
+- Se desarrollan los chips de Memoria, CPU y Computadora, esto con el objetivo de completar la construcción de la CPU Hack y la plataforma mencionada anteriormente, hasta llegar al chip Computer.
 
 ***
 
 ## Proyecto 4: Descripción de los programas
-A continuación se da una breve explicación del proceso de construcción de los chips de los proyectos 2 y 3 de nand2tetris, explicanco los integrados utilizados del proyecto 1.
+A continuación se da una breve explicación del proceso de construcción de los programas del proyecto 4 de nand2tetris, explicando su funcionamiento basico de forma breve.
 
 ### Mult: 
 Su función principal es sumar dos números binarios de un solo bit y producir dos salidas: una para la suma de los bits y otra para el acarreo (carry) que se genera cuando la suma supera el valor de 1. 
@@ -37,7 +37,7 @@ circuito lógico digital más avanzado que el Half Adder y se utiliza para sumar
 Se requieren 3 entradas, donde incialmente se emplea un HalfAdder para obtener sumAB, el cual se usa como entrada del siguiente HalfAdder junto con la entrada c. Por ultimo se realiza un Or entre los 2 carrys obtenidos anteriormente.
 
 ## Proyecto 5: Descripción de los chips
-A continuación se da una breve explicación del proceso de construcción de los chips de los proyectos 2 y 3 de nand2tetris, explicanco los integrados utilizados del proyecto 1.
+A continuación se da una breve explicación del proceso de construcción de los chips del proyecto 5 de nand2tetris, explicando los componentes utilizados y su funcionamiento.
 
 ### Memory:
 Primero se crea el incremento de out mediante un Inc16, posteriormente seleccionamos las 3 entradas de los posibles valores mediante un Mux8Way16 para finalmente guardar la selección y generar la salida mediante un Register.
