@@ -62,20 +62,48 @@ CHIP CPU {
         pc[15];          // address of next instruction
 
     PARTS:
+    //si el opcode es 1 es una instruccion tipo C, de lo contrario es tipo A
+    //si es tipo A almacenamos la instruccion
+    Not(in=instruction[15], out=instructionA);
+
+    //almacenamos si es instruccion C en una variable para hacer las cosas mas faciles
+    Not(in=instructionA, out=instructionC);
+
     //hacemos el primer mux para seleccionar entre la instruccion y la salida del alu
-    Mux16(a=instruction, b=outALU, sel=instruction[15], out=inAregister);
+    Mux16(a=outALU, b=instruction, sel=instructionA, out=inRegisterA);
+
+    //para alacenar el registro tipo A debe coincider que sea una instruccion tipo A
+    //O (or) el dest perteneciente a A sea 1 (instruction[5])
+    Or(a=instructionA, b=instruction[5], out=loadA);
 
     //guardamos el registro A
-    ARegister(in=inAregister, load=instruction[5], out=A);
+    ARegister(in=inAregister, load=loadA, out=A, out[0..14]=addressM);
+    //nota, el addressM es el mismo A, pero este colo almacena 15 bits y no 16, el bit
+    //numero 15 (A[15]) deriva de opcode, por tanto solo tomaremos del 0 al 14
+    // es decir A[0..14]
 
-    //segundo mux entre inM y el registro A
-    Mux16(a=inM, b=A, sel=instruction[11], out=inALU);
+    //para poder almacenar el registro D tiene que ser una instruccion tipo C
+    // Y (and) su vez, el dest perteneciente a D tiene que ser 1 (instruction[4])
+    And(a=instructionC, b=instruction[4], out=loadD);
 
-    //registro D
-    DRegister(in=outALU, load=instruction[4], out=D);
+    //almacenamos el registro D
+    DRegister(in=outALU, load=loadD, out=D);
 
-    //calculo entre la entrada de ALU, y el registro D, con entrada de C's
-    ALU(x=inALU, y=D, 
+    //para seleccionar entre la entrada A y la entrada M (inM)
+    //tiene que coincidir que sea una instruccion tipo C (instructionC)
+    //Y (and) el seleccionador de instruccion de A y M (A_M o instruction[12])
+    And(a=instructionC, b=instruction[12], out=selectionAM);
+
+    //segundo mux entre inM y el registro A y arrojomos la entrada Y del ALU
+    Mux16(a=A, b=inM, sel=selectionAM, out=inYALU);
+
+    //para la salida writeM tiene que coincide que sea una instruccion tipo C
+    //Y (and) el dest de M (instruction[3])
+    And(a=instruction[3], b=instructionC, out=writeM);
+
+    //calculo entre la entrada de ALU, y el registro D, con entrada de C's de la instruction,
+    //va en ese orden de ZX hasta NO en el orden de instruction[11] a la instruction[6]
+    ALU(x=D, y=inYALU, 
     zx=instruction[11], 
     nx=instruction[10], 
     zy=instruction[9], 
@@ -83,9 +111,64 @@ CHIP CPU {
     f=instruction[7], 
     no=instruction[6],
 
-    out=outALU,
-    out=outM, 
-    zr=zrALU, 
-    ng=ngALU
+    out=outALU, //out para retroalimentar
+    out=outM, //salida de M
+
+    zr=zrALU, //si es igual a cero
+    ng=ngALU //si es menor a cero
     );
+
+    //ahora continuamos para el pc, para eso nos ayudamos con la tabla de jumps
+    //los 3 bits de jump son del 0 al 2 (instruction[0..2]) junto a las salidas 
+    //zr y ng del ALU
+    //el bit 0 corresponde al G (mayor)
+    //el bit 1 corresponde al E (igual)
+    //el bit 2 corresponde al L (menor)
+
+    //JGT, si es mayor a cero: para esto no puede ser ni negativo (ng=0)
+    //ni igual a cero (zr=0), y indicar con el bit G (bit 0)
+    Or(a=ngALU, b=zrALU, out=notJGT);
+    Not(in=notJGT, out=isJGT);
+    And(a=isJGT, b=instruction[0], out=JGT);
+
+    //JEQ, este es mas sencillo, solo tenemos que coincidir que sea cero
+    //que con zr de la ALU me lo indica, y que el bit E (bit 1) sea 1
+    And(a=zrALU, b=instruction[1], out=JEQ);
+
+    //JLT, este es similar al anterior, esta vez tengo que mirar si es negativo con
+    //ng y que me lo indique la instruccion con el bit L (bit 2)
+    And(a=ngALU, b=instruction[2], out=JLT);
+
+    //de aqui en adelante para los demas podemos combinar, los 3 ya creados
+    //para los demas jump
+
+    //JGE; mayor o igual a cero, para eso tiene que ser JGT or JEQ
+    Or(a=JGT, b=JEQ, out=JGE);
+
+    //JNE; no igual a cero, para eso tiene que ser not JEQ
+    Not(in=JEQ, out=JNE);
+
+    //JLE; igual o menor a cero, para eso tiene que ser JLT or JEQ
+    Or(a=JLT, b=JEQ, out=JLE);
+
+    //si se cumplen alguna de las anteriores entonces tenemos un JMP, 
+    //la forma mas rapido de saberlo es usando el JLE (menor o igual a cero)
+    //y JGT (mayor a cero), con esto abarcamos tanto el cero como los
+    //positimos y los negativos
+    Or(a=JLE, b=JGT, out=JMP);
+
+    //la unica manera de que no cargue en pc, es que los 3 jumps sean
+    //cero, es decir que si JMP no es 1, no se hace el jumpl, pero ademas 
+    //tiene que cumplirse que sea una instruccion tipo C
+    And(a=JMP, b=instructionC, out=loadPC);
+
+    //para que se cargue el pc nesesitamos le load, que ya esta, e indicar
+    //si se incrementa o no, para saber si se incrementa es sencillo
+    //si loadPC es 1 indica que hay que cargar algo, por tanto no hay incremento
+    //pero si es cero, como no hay que cargar nada entonces tiene que incrementar
+    Not(in=loadPC, out=incrementPC);
+
+    //la entrada de PC es el registro de A y la salida es de 15 bits, sin
+    //usar lo derivada de upcode, es decir out[0..14] y el reset es una entrada
+    PC(in=A, load=loadPC, inc=incrementPC, reset=reset, out[0..14]=PC);
 }
