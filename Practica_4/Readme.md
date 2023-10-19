@@ -18,6 +18,27 @@ El ensamblador es un lenguaje de programación de bajo nivel que se utiliza para
 ## Proyecto 6: El Ensamblador
 A continuación se da una breve explicación del proceso de construcción del programa del proyecto 6 de nand2tetris, explicando su funcionamiento basico de forma breve.
 
+El proceso general de conversión de un código de ensamblador a un código de máquina implica los siguientes pasos:
+
+1. **Configuración inicial**: Se define un diccionario que mapea nombres simbólicos (como 'SCREEN', 'KBD', 'SP', 'LCL', etc.) a direcciones de memoria predefinidas. También se asignan direcciones a las localidades de memoria de tipo 'R' (R0, R1, ..., R15).
+
+2. **Análisis de código de ensamblador**:
+   - El módulo `parseador` procesa el archivo línea por línea, identificando el tipo de instrucción (A, C o L) y extrayendo información relevante como el valor, el destino, la operación, el salto y las etiquetas.
+   - Se eliminan los comentarios y los espacios en blanco, y se limpia la línea para un procesamiento más preciso.
+
+3. **Generación de código de máquina**:
+   - El módulo `codificador` traduce los componentes de la instrucción ensambladora a código binario.
+   - Se obtiene el código de destino, el código de operación y el código de salto correspondientes para las instrucciones de tipo C.
+   - Para las instrucciones de tipo A, se traduce el valor a su representación binaria de 15 bits.
+
+4. **Actualización del diccionario**:
+   - Las etiquetas de salto y sus respectivas direcciones se agregan al diccionario para su posterior referencia.
+
+5. **Escritura del archivo de salida**:
+   - Se escribe el código de máquina resultante en un archivo con extensión ".hack".
+
+En resumen, el proceso implica inicializar las configuraciones, analizar el código de ensamblador para comprender sus componentes, traducir estos componentes a código de máquina y finalmente escribir el código de máquina resultante en un archivo de salida.
+
 - ### Agregar: 
 
 
