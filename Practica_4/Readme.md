@@ -66,7 +66,7 @@ Si se encuentra una línea que es una etiqueta, se agrega al diccionario la info
 ### 5. Escritura del archivo de salida:
 Se genera el nombre del archivo de salida en función del nombre del archivo de entrada proporcionado, reemplazazando la extensión ".asm" por ".hack".
 
-Dependiendo del tipo de instrucción (A o C), se escribe la cadena de código de máquina correspondiente en el archivo de salida, junto con un carácter de nueva línea para cada línea de código de máquina.
+Dependiendo del tipo de instrucción (A o C), se escribe la cadena de código de máquina correspondiente en el archivo de salida, junto con un carácter de nueva línea para cada línea de código de máquina. Una vez que el código está en la memoria, el procesador o CPU lo lee y lo interpreta como instrucciones de bajo nivel. La CPU ejecuta estas instrucciones una por una, realizando las operaciones especificadas en el código.
 
 ***
 
