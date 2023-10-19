@@ -22,6 +22,7 @@ El proceso general de conversión de un código de ensamblador a un código de m
 
 ### 1. Configuración inicial: 
 Se define un diccionario que mapea nombres simbólicos (como 'SCREEN', 'KBD', 'SP', 'LCL', etc.) a direcciones de memoria predefinidas. También se asignan direcciones a las localidades de memoria de tipo 'R' (R0, R1, ..., R15), ya que el diccionario también inicializa las localidades de memoria de tipo "R" (registros generales) con valores ascendentes del 0 al 15.
+
 En este caso específico, el código proporcionado en Python incluye la creación de un diccionario que mapea ciertos nombres simbólicos a direcciones de memoria predefinidas. Este diccionario se utiliza más adelante en el proceso de conversión para asignar direcciones de memoria específicas a símbolos que se encuentran en el código de ensamblador.
 
 
@@ -30,7 +31,7 @@ Se trada del análisis del código de ensamblador, se realiza principalmente med
 
 **- Inicialización de la clase parseo**: Se inicializa un objeto de la clase parseo para cada línea del archivo de código de ensamblador. El constructor de la clase elimina los espacios en blanco y otros caracteres innecesarios, y establece el tipo de instrucción como nulo al principio.
 
-**- Verificación del tipo de instrucción**: Mediante el método verificar, se identifica el tipo de instrucción en función de su estructura. Se verifica si la línea es un comentario, una instrucción A (empezando con "@"), una etiqueta (empezando con "("), o una instrucción C. El resultado se almacena en el atributo tipo del objeto.
+**- Verificación del tipo de instrucción**: Mediante el método verificar, se identifica el tipo de instrucción en función de su estructura. Se verifica si la línea es un comentario, una instrucción A ( empezando con "@" ), una etiqueta ( empezando con "(" ), o una instrucción C. El resultado se almacena en el atributo tipo del objeto.
 
 **- Limpieza de la línea**: El método limpiar elimina los comentarios y espacios en blanco de la línea para facilitar el análisis posterior. Esto implica encontrar la posición del comentario (si existe) y truncar la línea en consecuencia.
 
@@ -40,7 +41,6 @@ Se trada del análisis del código de ensamblador, se realiza principalmente med
 ### 3. Generación de código de máquina:
 El módulo `codificador` traduce los componentes de la instrucción ensambladora a código binario., posteriormente se obtiene el código de destino, el código de operación y el código de salto correspondientes para las instrucciones de tipo C. Para las instrucciones de tipo A, se traduce el valor a su representación binaria de 15 bits.
 A continuación se explican las funciones de los metodos mas detalladamente:
-Por supuesto, el paso 3, que es la generación de código de máquina, implica principalmente el uso del módulo `codificador`. Aquí se describen los detalles de este proceso:
 
 **`codigo_destino`**: Este método toma el destino de una instrucción de tipo C y devuelve su representación en código binario, según el diccionario de destinos predefinidos.
 
@@ -55,10 +55,12 @@ Por supuesto, el paso 3, que es la generación de código de máquina, implica p
 ### 4. Actualización del diccionario:
 El paso 4 implica la actualización del diccionario con la información de las etiquetas y sus respectivas direcciones. Aquí se describen los detalles de este proceso. 
 El método `agregar_al_diccionario` itera a través de cada línea previamente procesada y analizada para determinar si se trata de una etiqueta. Si la línea no es una etiqueta, se incrementa un contador para rastrear las instrucciones no relacionadas con etiquetas. 
+
 Si se encuentra una línea que es una etiqueta, se agrega al diccionario la información de la etiqueta y su dirección correspondiente, que se establece en función del contador de instrucciones.
 
 
 ### 5. Escritura del archivo de salida:
 Se genera el nombre del archivo de salida en función del nombre del archivo de entrada proporcionado, reemplazazando la extensión ".asm" por ".hack".
+
 Dependiendo del tipo de instrucción (A o C), se escribe la cadena de código de máquina correspondiente en el archivo de salida, junto con un carácter de nueva línea para cada línea de código de máquina.
 
