@@ -73,9 +73,9 @@ def codigo_valor(valor, diccionario):
     elif valor in diccionario:
         binario =  bin(diccionario[valor])[2:]
     else:
-        numero = random.randint(16, 16383)
+        numero = 16
         while (numero in diccionario.values()):
-            numero = random.randint(16, 16383)
+            numero = numero+1
 
         diccionario[valor] = numero
 

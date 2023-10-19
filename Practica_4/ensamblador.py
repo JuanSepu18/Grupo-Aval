@@ -29,7 +29,7 @@ def main(diccionario):
     
     diccionario = cd.agregar_al_diccionario(diccionario, lineas)
 
-    nombre_archivo_hack = nombre_archivo[:nombre_archivo.find('.')] + ".hack"
+    nombre_archivo_hack = nombre_archivo[:nombre_archivo.find('.asm')] + ".hack"
     with open(nombre_archivo_hack, 'w') as archivo_hack:
         for i in lineas:
             instruccion = ""
