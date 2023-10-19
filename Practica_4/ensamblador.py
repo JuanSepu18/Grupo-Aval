@@ -28,6 +28,7 @@ def main(diccionario):
             lineas.append(linea)
     
     diccionario = cd.agregar_al_diccionario(diccionario, lineas)
+    diccionario = cd.agregar_segundo(diccionario, lineas)
 
     nombre_archivo_hack = nombre_archivo[:nombre_archivo.find('.asm')] + ".hack"
     with open(nombre_archivo_hack, 'w') as archivo_hack:
@@ -37,10 +38,10 @@ def main(diccionario):
                 instruccion = "111" + cd.codigo_operacion(i.get_operacion()) + cd.codigo_destino(i.get_destino()) + cd.codigo_salto(i.get_salto())
                 archivo_hack.write(instruccion + '\n')
             elif(i.tipo == 'A'):
-                instruccion, diccionario = cd.codigo_valor(i.get_valor(), diccionario)
+                instruccion= cd.codigo_valor(i.get_valor(), diccionario)
                 instruccion = "0" +  instruccion
                 archivo_hack.write(instruccion + '\n')
-            
+    
 
 if __name__ == '__main__':
     main(diccionario)

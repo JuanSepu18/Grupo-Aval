@@ -16,7 +16,7 @@ def codigo_destino(destino):
 
 def codigo_operacion(operacion):
 
-    operacion = ''.join(operacion.split())
+    #operacion = ''.join(operacion.split())
 
     diccionario = {
         None : None,
@@ -68,23 +68,16 @@ def codigo_salto(salto):
 
 def codigo_valor(valor, diccionario):
     binario = ""
+    valor = valor.strip()
     if valor.isdigit():
         binario =  bin(int(valor))[2:]
     elif valor in diccionario:
         binario =  bin(diccionario[valor])[2:]
-    else:
-        numero = 16
-        while (numero in diccionario.values()):
-            numero = numero+1
-
-        diccionario[valor] = numero
-
-        binario = bin(numero)[2:]
 
     while(len(binario) != 15):
         binario = "0"+ binario
     
-    return binario, diccionario
+    return binario
 
 def agregar_al_diccionario(diccionario, lineas):
     contador = 0;
@@ -96,3 +89,13 @@ def agregar_al_diccionario(diccionario, lineas):
             diccionario[etiqueta] = contador
     
     return diccionario
+
+def agregar_segundo(diccionario, lineas):
+    contador = 16
+    for linea in lineas:
+        if linea.tipo == 'A' and not (linea.get_valor() in diccionario):
+            if not linea.get_valor().isdigit():
+                diccionario[linea.get_valor()] = contador
+                contador = contador + 1
+    return diccionario
+            
