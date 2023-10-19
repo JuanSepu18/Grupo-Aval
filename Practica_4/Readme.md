@@ -4,7 +4,11 @@ La practica de laboratorio No. 4 corresponde al desarrollo e implementación del
 ***
 
 ## Pregunta: Teniendo en cuenta las caracteristicas del ensamblador, ¿Cuál es la principal limitante que observan? Justifique su respuesta.
-El ensamblador es un lenguaje de programación de bajo nivel que se utiliza para programar directamente la arquitectura de una computadora. Una de las limitantes principales es que es altamente dependiente de la arquitectura del procesador. Esto significa que el código ensamblador escrito para un procesador específico no es portátil y no se puede ejecutar en otro procesador sin modificaciones significativas. Cada arquitectura de procesador tiene su propio conjunto de instrucciones y registros, lo que hace que el código ensamblador sea altamente específico para esa arquitectura. Esto dificulta la portabilidad y la reutilización del código entre diferentes tipos de procesadores.
+El ensamblador es un lenguaje de programación de bajo nivel que se utiliza para programar directamente la arquitectura de una computadora. 
+
+Una de las limitantes principales es la capacidad limitada de la memoria, ya que por ejemplo, si se quiere crear una lista de mas de 16.000 datos, se llena la memoria, presentando un inconveniente.
+
+Otro limitante se trata de la asignación de memoria, el cual, es un proceso lento, ya que toma valores consecutivos resultando en un proceso demorado para el ensamblador.
 
 
 ***
