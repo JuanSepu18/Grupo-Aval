@@ -64,3 +64,7 @@ Se genera el nombre del archivo de salida en función del nombre del archivo de 
 
 Dependiendo del tipo de instrucción (A o C), se escribe la cadena de código de máquina correspondiente en el archivo de salida, junto con un carácter de nueva línea para cada línea de código de máquina.
 
+***
+
+Una vez obtenido el proyecto de ensamblador completo, se procede a realizar las pruebas con los programas asm respectivos, como el pong y los demas a usar mediante el programa de nand2tetris.
+
