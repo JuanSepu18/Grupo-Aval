@@ -20,21 +20,29 @@ A continuación se da una breve explicación del proceso de construcción del pr
 
 El proceso general de conversión de un código de ensamblador a un código de máquina implica los siguientes pasos:
 
-1. **Configuración inicial**: Se define un diccionario que mapea nombres simbólicos (como 'SCREEN', 'KBD', 'SP', 'LCL', etc.) a direcciones de memoria predefinidas. También se asignan direcciones a las localidades de memoria de tipo 'R' (R0, R1, ..., R15).
+### 1. Configuración inicial: Se define un diccionario que mapea nombres simbólicos (como 'SCREEN', 'KBD', 'SP', 'LCL', etc.) a direcciones de memoria predefinidas. También se asignan direcciones a las localidades de memoria de tipo 'R' (R0, R1, ..., R15), ya que el diccionario también inicializa las localidades de memoria de tipo "R" (registros generales) con valores ascendentes del 0 al 15.
+En este caso específico, el código proporcionado en Python incluye la creación de un diccionario que mapea ciertos nombres simbólicos a direcciones de memoria predefinidas. Este diccionario se utiliza más adelante en el proceso de conversión para asignar direcciones de memoria específicas a símbolos que se encuentran en el código de ensamblador.
 
-2. **Análisis de código de ensamblador**:
-   - El módulo `parseador` procesa el archivo línea por línea, identificando el tipo de instrucción (A, C o L) y extrayendo información relevante como el valor, el destino, la operación, el salto y las etiquetas.
-   - Se eliminan los comentarios y los espacios en blanco, y se limpia la línea para un procesamiento más preciso.
+### 2. Ensamblador:
+Se trada del análisis del código de ensamblador, se realiza principalmente mediante el uso del módulo parseador. Aquí se describen los aspectos clave de este proceso en detalle:
 
-3. **Generación de código de máquina**:
+**- Inicialización de la clase parseo**: Se inicializa un objeto de la clase parseo para cada línea del archivo de código de ensamblador. El constructor de la clase elimina los espacios en blanco y otros caracteres innecesarios, y establece el tipo de instrucción como nulo al principio.
+
+**- Verificación del tipo de instrucción**: Mediante el método verificar, se identifica el tipo de instrucción en función de su estructura. Se verifica si la línea es un comentario, una instrucción A (empezando con "@"), una etiqueta (empezando con "("), o una instrucción C. El resultado se almacena en el atributo tipo del objeto.
+
+**- Limpieza de la línea**: El método limpiar elimina los comentarios y espacios en blanco de la línea para facilitar el análisis posterior. Esto implica encontrar la posición del comentario (si existe) y truncar la línea en consecuencia.
+
+**- Métodos de obtención de componentes de instrucciones específicas**: Los métodos como get_valor, get_destino, get_operacion, get_salto y get_etiqueta se utilizan para extraer componentes específicos de la instrucción, como el valor, el destino, la operación, el salto y la etiqueta respectivamente. Estos métodos trabajan en función del tipo de instrucción y devuelven los valores correspondientes según la lógica definida.
+
+### 3. Generación de código de máquina:
    - El módulo `codificador` traduce los componentes de la instrucción ensambladora a código binario.
    - Se obtiene el código de destino, el código de operación y el código de salto correspondientes para las instrucciones de tipo C.
    - Para las instrucciones de tipo A, se traduce el valor a su representación binaria de 15 bits.
 
-4. **Actualización del diccionario**:
+### 4. Actualización del diccionario:
    - Las etiquetas de salto y sus respectivas direcciones se agregan al diccionario para su posterior referencia.
 
-5. **Escritura del archivo de salida**:
+### 5. Escritura del archivo de salida:
    - Se escribe el código de máquina resultante en un archivo con extensión ".hack".
 
 En resumen, el proceso implica inicializar las configuraciones, analizar el código de ensamblador para comprender sus componentes, traducir estos componentes a código de máquina y finalmente escribir el código de máquina resultante en un archivo de salida.
