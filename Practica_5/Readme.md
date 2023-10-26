@@ -26,5 +26,15 @@ A continuación se da una breve explicación del proceso de construcción del pr
 ...
 
 
+***
+
+## Proyecto 8: Máquina Virtual II - Control de Programa
+A continuación se da una breve explicación del proceso de construcción del programa del proyecto 8 de nand2tetris, explicando su funcionamiento basico de forma breve.
+
+...
+
+### 1. Configuración inicial: 
+...
+
 
 
