@@ -25,6 +25,7 @@ def tipo_1(linea):
     retorno = ""
 
     if(linea.line[0] == "eq" or linea.line[0] == "gt" or linea.line[0] == "lt"):
+        global contador_etiquetas
         retorno = dic_1[linea.line[0]](contador_etiquetas)
         contador_etiquetas = contador_etiquetas+1
     else:

@@ -1,3 +1,5 @@
+contador_funciones = 0
+
 def error_segmento_invalido():
     print("Error: el segmento que se ha pasado es invalido")
 
@@ -32,8 +34,17 @@ def Push(segmento, indice):
     @SP
     M=M+1
     """
-    elif(segmento == "static" or segmento == "temp" or 
-         segmento == "pointer"):
+    elif(segmento == "pointer" or segmento == "temp"):
+        retorno = """@""" + registro + """
+    D=M
+@SP
+    A=M
+    M=D
+@SP
+    M=M+1
+    """
+
+    elif(segmento == "static"):
         retorno = """@""" + registro + """
     D=A
 @""" + indice + """
@@ -86,9 +97,16 @@ def Pop(segmento, indice):
     M=D
     """
         
+    elif(segmento == "temp" or segmento == "pointer"):
+        retorno = """@SP
+    AM=M-1
+    D=M
+@""" + registro + """
+    M=D
+    """
+        
     elif(segmento == "argument" or segmento == "local" or 
-         segmento == "this" or segmento == "that" or 
-         segmento == "temp" or segmento == "pointer"):
+         segmento == "this" or segmento == "that"):
             retorno = """@""" + registro + """
     D=M
 @""" + indice +"""
@@ -109,8 +127,59 @@ def Pop(segmento, indice):
     return retorno
         
 
-def Function(segmento, indice):
-    pass
+def Function(nombre_funcion, cantidad_variables):
+    retorno = """(""" + nombre_funcion + """)
+"""
+    for i in range(int(cantidad_variables), -1, 0):
+        retorno = retorno+"""@SP
+    AM=M+1
+    A=A-1
+    M=0
+"""
+    return retorno
 
-def Call(segmento, indice):
-    pass
+def Call(nombre_funcion, cantidad_argumentos):
+    global contador_funciones
+    return_address = "call_" + nombre_funcion + "_" + str(contador_funciones)
+    retorno = """@""" + return_address + """
+    D=A
+@SP
+    AM=M+1
+    A=A-1
+    M=D
+@LCL
+    D=M
+@SP
+    AM=M+1
+    A=A-1
+    M=D
+@ARG
+    D=M
+@SP
+    AM=M+1
+    A=A-1
+    M=D
+@THIS
+    D=M
+@SP
+    AM=M+1
+    A=A-1
+    M=D
+@SP
+    D=M
+@5
+    D=D-A
+@""" + str(cantidad_argumentos) + """
+    D=D-A
+@ARG
+    M=D
+@SP
+    D=M
+@LCL
+    M=D
+@""" + nombre_funcion + """
+    0;JMP
+(""" + return_address + """)
+"""
+
+    contador_funciones = contador_funciones+1
