@@ -130,7 +130,7 @@ def Pop(segmento, indice):
 def Function(nombre_funcion, cantidad_variables):
     retorno = """(""" + nombre_funcion + """)
 """
-    for i in range(int(cantidad_variables), -1, 0):
+    for i in range(int(cantidad_variables), 0, -1):
         retorno = retorno+"""@SP
     AM=M+1
     A=A-1
@@ -183,3 +183,5 @@ def Call(nombre_funcion, cantidad_argumentos):
 """
 
     contador_funciones = contador_funciones+1
+
+    return retorno

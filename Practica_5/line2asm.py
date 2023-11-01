@@ -15,7 +15,8 @@ def get_dic_1():
         "end" : f1.End,
         "eq"  : f1.Eq,
         "gt"  : f1.Gt,
-        "lt"  : f1.Lt
+        "lt"  : f1.Lt,
+        "return" : f1.Return
     }
 
     return dic_1

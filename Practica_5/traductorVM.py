@@ -16,6 +16,7 @@ def main():
     with open(nombre_archivo_asm, 'w') as archivo_asm:
         for linea in lineas:
             comando = ""
+            #print(linea.line)
             if(linea.tipo == 1):
                 comando = code.tipo_1(linea)
             elif(linea.tipo == 2):
@@ -23,6 +24,7 @@ def main():
             elif(linea.tipo == 3):
                 comando = code.tipo_3(linea)
             archivo_asm.write(comando + '\n')
+        archivo_asm.write(code.tipo_1(line("end")))
             
     
     print("Archivo creado satisfactoriamente")
