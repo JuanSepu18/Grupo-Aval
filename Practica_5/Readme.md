@@ -25,24 +25,29 @@ El futuro de las vm es prometedor y se proyecta que desempeñaran un papel impor
 
 ***
 
-## Proyecto 7: Máquina Virtual I - Aritmética de Pila
-A continuación se da una breve explicación del proceso de construcción del programa del proyecto 7 de nand2tetris, explicando su funcionamiento basico de forma breve.
+## Proyecto 7 y 8: Máquina Virtual
+A continuación se da una breve explicación del proceso de construcción del programa del proyecto 7 y 8 de nand2tetris, explicando su funcionamiento basico de forma breve.
 
-...
 
-### 1. Configuración inicial: 
-...
+### 1. Traductor VM: 
+El archivo `traductorVM.py` es esencial en el proceso de traducción del código de máquina virtual a código ensamblador Hack. Aquí está una descripción detallada de cada sección:
+
+#### `import` y `def main()`
+El código comienza importando los módulos necesarios y definiendo la función principal `main()`, que se encarga de la ejecución principal del programa.
+
+#### Lectura de Archivo y Procesamiento de Líneas
+El programa comienza abriendo y leyendo el archivo de código de máquina virtual. Luego, cada línea se procesa utilizando la clase `linea` del módulo `lineas.py`. Se eliminan los comentarios y espacios en blanco, y las líneas se clasifican en tres tipos según su longitud y contenido.
+
+#### Generación de Archivo de Ensamblador
+Después de procesar todas las líneas del archivo de entrada, el programa genera un nuevo archivo con extensión `.asm`, que contendrá el código ensamblador Hack equivalente. Utiliza las funciones del módulo `line2asm.py` para traducir cada instrucción de máquina virtual a código ensamblador.
+
+#### Ejecución de la Traducción y Finalización del Archivo
+El programa recorre cada línea procesada y utiliza las funciones adecuadas para traducir las instrucciones de máquina virtual a código ensamblador Hack. Finalmente, escribe las líneas traducidas en el archivo `.asm`. Además, al final del archivo, se escribe una instrucción `end` para marcar el final del programa.
+
+#### `if __name__ == '__main__':` y Llamada a la Función Principal
+La sección final del código verifica si el script se está ejecutando como el programa principal y, si es así, llama a la función `main()` para comenzar el proceso de traducción.
+
+`traductorVM.py`, funciona como el controlador principal que coordina la traducción del código de máquina virtual a código ensamblador Hack, utilizando funciones y clases definidas en otros archivos para procesar y traducir las líneas de código de manera efectiva.
 
 
 ***
-
-## Proyecto 8: Máquina Virtual II - Control de Programa
-A continuación se da una breve explicación del proceso de construcción del programa del proyecto 8 de nand2tetris, explicando su funcionamiento basico de forma breve.
-
-...
-
-### 1. Configuración inicial: 
-...
-
-
-
