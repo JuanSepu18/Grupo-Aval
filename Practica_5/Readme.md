@@ -5,7 +5,12 @@ La practica de laboratorio No. 5 corresponde al desarrollo e implementación de 
 
 ## Pregunta: Teniendo en cuenta el marco de estas dos prácticas que son las máquinas virtuales. ¿Cuál cree que es el futuro de las máquinas virtuales?
 
-...
+El futuro de las vm es prometedor y se proyecta que desempeñaran un papel importante en el desarrollo y la computación. Estas son algunas áreas clave que pueden definir el futuro de las máquinas virtuales:
+
+•	Computación en la nube: Las máquinas virtuales son fundamentales en la infraestructura de la nube. Proveedores como Amazon y Google Cloud utilizan máquinas virtuales para ofrecer servicios escalables, flexibles y confiables a los usuarios
+•	Virtualización de aplicaciones y contenedores: La virtualización no solo se limita a máquinas completas; también incluye la virtualización de aplicaciones y el uso de contenedores. Tecnologías como Docker han aumentado la popularidad de la virtualización a nivel de aplicación, permitiendo entornos más ligeros y ágiles. 
+•	Seguridad y aislamiento: Las máquinas virtuales han sido utilizadas para proporcionar aislamiento entre sistemas y mejorar la seguridad. 
+•	Eficiencia y rendimiento: El desarrollo continuo de técnicas de virtualización y la optimización de rendimiento seguirá siendo un área de enfoque. Mejorar la eficiencia y reducir la sobrecarga de recursos será crucial para garantizar la adopción y el éxito continuo de las máquinas virtuales.
 
 
 ***
