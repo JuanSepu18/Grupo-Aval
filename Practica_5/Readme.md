@@ -72,4 +72,16 @@ El archivo `line2asm.py`, contiene funciones que se utilizan para convertir las 
 
 `line2asm.py` desempeña un papel esencial en la traducción del código de máquina virtual al código ensamblador Hack, utilizando diccionarios y funciones especializadas para garantizar una traducción precisa y eficiente de las instrucciones de máquina virtual.
 
+
+### 4. Diccionarios de funciones
+
+Los archivos `funciones_dic_1.py`, `funciones_dic_2.py` y `funciones_dic_3.py` contienen diccionarios que se utilizan para realizar la traducción de las instrucciones del lenguaje de máquina virtual a instrucciones en lenguaje ensamblador Hack. Cada diccionario está diseñado para manejar instrucciones con un número específico de palabras o argumentos:
+
+1. **Diccionario 1 (funciones_dic_1.py):** Este diccionario se encarga de traducir instrucciones que constan de una sola palabra en el lenguaje de máquina virtual. Contiene funciones que se utilizan para traducir estas instrucciones en operaciones específicas del lenguaje ensamblador Hack.
+
+2. **Diccionario 2 (funciones_dic_2.py):** Este diccionario se utiliza para traducir instrucciones que constan de dos palabras en el lenguaje de máquina virtual. Contiene funciones específicas que se encargan de traducir estas instrucciones en operaciones válidas del lenguaje ensamblador Hack.
+
+3. **Diccionario 3 (funciones_dic_3.py):** Este diccionario maneja instrucciones que constan de tres palabras en el lenguaje de máquina virtual. Contiene funciones especializadas que traducen estas instrucciones en secuencias de operaciones válidas en el lenguaje ensamblador Hack.
+
+
 ***
