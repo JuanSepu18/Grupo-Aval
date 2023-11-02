@@ -105,53 +105,102 @@ def Lt(numero):
     return text_comparador(tipo_jump, numero)
 
 def Return():
+    Frame = "R13"
+    Ret = "R14"
+
     retorno = """@LCL
     D=M
-@R13
+@""" + Frame + """
     M=D
-@R13
-    M=D
-@5
-    A=D-A
+@""" + Frame + """
     D=M
-@R14
+@5
+    D=D-A
+    A=D
+    D=M
+@""" + Ret + """
     M=D
 @SP
-    AM=M-1
+    M=M-1
+    A=M
     D=M
 @ARG
     A=M
     M=D
-@R13
-    D=M
-@1
-    A=D-A
-    D=M
-@THAT
-    M=D
-@R13
-    D=M
-@2
-    A=D-A
-    D=M
-@THIS
-    M=D
-@R13
-    D=M
-@3
-    A=D-A
-    D=M
 @ARG
-    M=D
-@R13
     D=M
-@4
-    A=D-A
+@SP
+    M=D-1
+"""
+
+    offset = 1
+    for direc in ["@THAT", "@THIS", "@ARG", "@LCL"]:
+        retorno = retorno + """@""" + Frame + """
     D=M
-@LCL
+@""" + str(offset) + """
+    D=D-A
+    A=D
+    D=M
+    """ + direc + """
     M=D
-@R14
+"""
+        offset += 1
+    
+    retorno = retorno + """@""" + Ret + """
     A=M
     0;JMP"""
+
+    return retorno
+
+
+
+#     retorno = """@LCL
+#     D=M
+# @R13
+#     M=D
+# @R13
+#     M=D
+# @5
+#     A=D-A
+#     D=M
+# @R14
+#     M=D
+# @SP
+#     AM=M-1
+#     D=M
+# @ARG
+#     A=M
+#     M=D
+# @R13
+#     D=M
+# @1
+#     A=D-A
+#     D=M
+# @THAT
+#     M=D
+# @R13
+#     D=M
+# @2
+#     A=D-A
+#     D=M
+# @THIS
+#     M=D
+# @R13
+#     D=M
+# @3
+#     A=D-A
+#     D=M
+# @ARG
+#     M=D
+# @R13
+#     D=M
+# @4
+#     A=D-A
+#     D=M
+# @LCL
+#     M=D
+# @R14
+#     A=M
+#     0;JMP"""
 
     return retorno
