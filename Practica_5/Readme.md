@@ -32,19 +32,19 @@ A continuación se da una breve explicación del proceso de construcción del pr
 ### 1. Traductor VM: 
 El archivo `traductorVM.py` es esencial en el proceso de traducción del código de máquina virtual a código ensamblador Hack. Aquí está una descripción detallada de cada sección:
 
-- #### `import` y `def main()`
+1. **`import` y `def main()`**
 El código comienza importando los módulos necesarios y definiendo la función principal `main()`, que se encarga de la ejecución principal del programa.
 
-- #### Lectura de Archivo y Procesamiento de Líneas
+2. **Lectura de Archivo y Procesamiento de Líneas**
 El programa comienza abriendo y leyendo el archivo de código de máquina virtual. Luego, cada línea se procesa utilizando la clase `linea` del módulo `lineas.py`. Se eliminan los comentarios y espacios en blanco, y las líneas se clasifican en tres tipos según su longitud y contenido.
 
-- #### Generación de Archivo de Ensamblador
+3. **Generación de Archivo de Ensamblador**
 Después de procesar todas las líneas del archivo de entrada, el programa genera un nuevo archivo con extensión `.asm`, que contendrá el código ensamblador Hack equivalente. Utiliza las funciones del módulo `line2asm.py` para traducir cada instrucción de máquina virtual a código ensamblador.
 
-- #### Ejecución de la Traducción y Finalización del Archivo
+4. **Ejecución de la Traducción y Finalización del Archivo**
 El programa recorre cada línea procesada y utiliza las funciones adecuadas para traducir las instrucciones de máquina virtual a código ensamblador Hack. Finalmente, escribe las líneas traducidas en el archivo `.asm`. Además, al final del archivo, se escribe una instrucción `end` para marcar el final del programa.
 
-- #### `if __name__ == '__main__':` y Llamada a la Función Principal
+5. **`if __name__ == '__main__':` y Llamada a la Función Principal**
 La sección final del código verifica si el script se está ejecutando como el programa principal y, si es así, llama a la función `main()` para comenzar el proceso de traducción.
 
 `traductorVM.py`, funciona como el controlador principal que coordina la traducción del código de máquina virtual a código ensamblador Hack, utilizando funciones y clases definidas en otros archivos para procesar y traducir las líneas de código de manera efectiva.
@@ -70,6 +70,6 @@ El archivo `line2asm.py`, contiene funciones que se utilizan para convertir las 
 
 2. **Tipos de Instrucciones:** El archivo define tres tipos de funciones de traducción que corresponden a instrucciones de una, dos o tres palabras, respectivamente. Estas funciones seleccionan la operación adecuada a realizar en el código ensamblador Hack según el tipo de instrucción de la línea de código de máquina virtual.
 
-En resumen, `line2asm.py` desempeña un papel esencial en la traducción del código de máquina virtual al código ensamblador Hack, utilizando diccionarios y funciones especializadas para garantizar una traducción precisa y eficiente de las instrucciones de máquina virtual.
+`line2asm.py` desempeña un papel esencial en la traducción del código de máquina virtual al código ensamblador Hack, utilizando diccionarios y funciones especializadas para garantizar una traducción precisa y eficiente de las instrucciones de máquina virtual.
 
 ***
