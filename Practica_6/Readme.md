@@ -1,5 +1,5 @@
 # Descripción de la práctica de laboratorio 6
-La practica de laboratorio No. 6 corresponde al desarrollo e implementación del proyecto 9 de nand2tetris, el cual se encuentra en la carpeta de proyectos de la aplicación. Para el desarrollo de dicho proyecto...
+La práctica de laboratorio No. 6 corresponde al desarrollo e implementación del proyecto 9 de Nand2Tetris, el cual se encuentra en la carpeta de proyectos de la aplicación. Para el desarrollo de dicho proyecto se implementa Jack, un lenguaje de programación simple similar a Java y basado en objetos.
 
 ***
 
@@ -17,7 +17,7 @@ La practica de laboratorio No. 6 corresponde al desarrollo e implementación del
 
 ## ¿Cuál es el objetivo del proyecto?
 
-...
+En este proyecto de buscó adoptar o inventar una idea de aplicación, en forma de un simple juego de computadora. Los ejemplos realizados fueron Snake y Square, implementando  estas aplicación en Jack. Se creó una versión básica o parte de un juego simple o una interacción interesante. Además, se documentó y explicó claramente la lógica detrás de la implementación.
 
 
 ***
