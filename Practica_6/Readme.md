@@ -1,4 +1,4 @@
-# Descripción de la practica de laboratorio 6
+# Descripción de la práctica de laboratorio 6
 La practica de laboratorio No. 6 corresponde al desarrollo e implementación del proyecto 9 de nand2tetris, el cual se encuentra en la carpeta de proyectos de la aplicación. Para el desarrollo de dicho proyecto...
 
 ***
@@ -7,9 +7,11 @@ La practica de laboratorio No. 6 corresponde al desarrollo e implementación del
 
 ...
 
+
 ## Bonus: ¿Qué se debe considerar para proponer un nuevo y buen lenguaje de programación, teniendo en cuenta la arquitectura de computador completa? Justifique su respuesta.
 
 ...
+
 
 ***
 
