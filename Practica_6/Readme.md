@@ -47,7 +47,10 @@ En este proyecto de buscó adoptar o inventar una idea de aplicación, en forma 
 ## Proyecto 9
 A continuación se da una breve explicación del proceso de construcción del programa del proyecto 9 de nand2tetris, explicando su funcionamiento basico de forma breve.
 
-...
+### Snake
+
+
+### Square
 
 
 ***
