@@ -51,6 +51,32 @@ A continuación se da una breve explicación del proceso de construcción del pr
 
 ### Snake
 
+1. **Main.jack:**
+   - Este archivo define la clase principal (`Main`) que contiene el método `main()`, donde se crea una instancia de la   clase `SnakeGame` llamada `game` para posteriormente llamar al método `run()` de la instancia `game` para ejecutar el juego.
+   - Después de ejecutar el juego, se llama al método `dispose()` para realizar alguna limpieza o liberación de recursos, devolviendo el control.
+
+2. **RandSeed.jack:**
+   - Define la clase `RandSeed` que tiene un método `getSeed()` para obtener una semilla aleatoria.
+   - Muestra un mensaje para indicar al usuario que presione una tecla para comenzar, y posteriormente utiliza un bucle para esperar a que el usuario realice dicha acción
+   - Incrementa la semilla cada vez que el bucle se ejecuta y reinicia la semilla cuando alcanza un valor límite, para luego limpiar la pantalla y devolver la semilla.
+
+3. **Random.jack:**
+   - Define la clase `Random` que tiene un campo estático `seed` y métodos para manipular y generar números aleatorios, en donde se e ncuentra el método `setSeed()`, el cual establece la semilla para la generación de números aleatorios.
+   - El método `rand()` genera un número aleatorio en el rango de 0 a 32767 usando una fórmula específica, y el método `randRange()` genera un número aleatorio en un rango específico utilizando la semilla y operaciones de bits.
+
+4. **Snake.jack:**
+- Este archivo define la clase `Snake`, representando la serpiente en el juego. Sus atributos incluyen la referencia al juego (`SnakeGame`), la posición de la cabeza, longitud, dirección, y un historial de movimientos. El constructor inicializa la serpiente y dibuja su posición inicial.
+- Sus métodos incluyen funciones para gestionar el movimiento, crecimiento, dibujo y verificación de colisiones.
+
+5. **SnakeGame.jack:**
+- La clase `SnakeGame` representa el juego, contiene instancias de `Snake` y `SnakeGrid`. `run()` y maneja el bucle principal del juego, procesando la entrada del teclado, moviendo la serpiente y actualizando el estado del juego.
+- También gestiona niveles, dibuja y actualiza la interfaz de usuario, y maneja eventos de pausa o finalización del juego.
+
+7. **SnakeGrid.jack:**
+Clase `SnakeGrid` que representa la cuadrícula del juego.
+- Se utiliza para gestionar la posición de la serpiente y la ubicación de la comida. Sus métodos incluyen funciones para colocar y dibujar la comida, inicializar y gestionar la cuadrícula, y verificar ocupación y colisiones.
+- Proporciona métodos para dibujar la interfaz de usuario, como puntuación, nivel y mensajes de estado.
+
 
 ### Square
 
