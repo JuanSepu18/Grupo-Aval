@@ -7,6 +7,8 @@ La práctica de laboratorio No. 6 corresponde al desarrollo e implementación de
 
 Un lenguaje de alto nivel es un lenguaje de programación diseñado para ser comprensible por los humanos y expresar lógica de programación de una manera más natural y cercana al lenguaje humano. A medida que avanzamos en la escala de "alto nivel" a "bajo nivel", la abstracción se reduce y la programación se vuelve más directamente relacionada con la arquitectura y el hardware subyacente de la computadora.
 
+<img width="507" alt="Captura de pantalla 2023-11-16 091840" src="https://github.com/JuanSepu18/Grupo-Aval/assets/129451318/9dddbbf1-ef60-4e68-bae6-2392080155e2">
+
 ### Características de los Lenguajes de Alto Nivel:
 
 - Abstracción: Los lenguajes de alto nivel permiten a los programadores escribir instrucciones sin preocuparse demasiado por la complejidad de la máquina subyacente.
