@@ -65,17 +65,17 @@ A continuación se da una breve explicación del proceso de construcción del pr
    - El método `rand()` genera un número aleatorio en el rango de 0 a 32767 usando una fórmula específica, y el método `randRange()` genera un número aleatorio en un rango específico utilizando la semilla y operaciones de bits.
 
 4. **Snake.jack:**
-- Este archivo define la clase `Snake`, representando la serpiente en el juego. Sus atributos incluyen la referencia al juego (`SnakeGame`), la posición de la cabeza, longitud, dirección, y un historial de movimientos. El constructor inicializa la serpiente y dibuja su posición inicial.
-- Sus métodos incluyen funciones para gestionar el movimiento, crecimiento, dibujo y verificación de colisiones.
+   - Este archivo define la clase `Snake`, representando la serpiente en el juego. Sus atributos incluyen la referencia al juego (`SnakeGame`), la posición de la cabeza, longitud, dirección, y un historial de movimientos. El constructor inicializa la serpiente y dibuja su posición inicial.
+   - Sus métodos incluyen funciones para gestionar el movimiento, crecimiento, dibujo y verificación de colisiones.
 
 5. **SnakeGame.jack:**
-- La clase `SnakeGame` representa el juego, contiene instancias de `Snake` y `SnakeGrid`. `run()` y maneja el bucle principal del juego, procesando la entrada del teclado, moviendo la serpiente y actualizando el estado del juego.
-- También gestiona niveles, dibuja y actualiza la interfaz de usuario, y maneja eventos de pausa o finalización del juego.
+   - La clase `SnakeGame` representa el juego, contiene instancias de `Snake` y `SnakeGrid`. `run()` y maneja el bucle principal del juego, procesando la entrada del teclado, moviendo la serpiente y actualizando el estado del juego.
+   - También gestiona niveles, dibuja y actualiza la interfaz de usuario, y maneja eventos de pausa o finalización del juego.
 
 7. **SnakeGrid.jack:**
 Clase `SnakeGrid` que representa la cuadrícula del juego.
-- Se utiliza para gestionar la posición de la serpiente y la ubicación de la comida. Sus métodos incluyen funciones para colocar y dibujar la comida, inicializar y gestionar la cuadrícula, y verificar ocupación y colisiones.
-- Proporciona métodos para dibujar la interfaz de usuario, como puntuación, nivel y mensajes de estado.
+   - Se utiliza para gestionar la posición de la serpiente y la ubicación de la comida. Sus métodos incluyen funciones para colocar y dibujar la comida, inicializar y gestionar la cuadrícula, y verificar ocupación y colisiones.
+   - Proporciona métodos para dibujar la interfaz de usuario, como puntuación, nivel y mensajes de estado.
 
 
 ### Square
