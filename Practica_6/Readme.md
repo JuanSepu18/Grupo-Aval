@@ -80,6 +80,14 @@ Clase `SnakeGrid` que representa la cuadrícula del juego.
 
 ### Square
 
+1. **Main.jack:**
+Este archivo es el punto de entrada del juego. La función `main()` crea una instancia de `SquareGame`, inicia el juego con `run()`, y luego libera los recursos con `dispose()`.
+
+2. **Square.jack:**
+Esta clase define un cuadrado gráfico en la pantalla. El constructor inicializa la posición, tamaño y dibuja el cuadrado. Métodos adicionales permiten borrar, incrementar y decrementar el tamaño, y mover el cuadrado en las direcciones (arriba, abajo, izquierda, derecha).
+
+3. **SquareGame.jack:**
+Esta clase implementa el juego "Square Dance". La instancia de `Square` es controlada por el usuario para moverse y cambiar su tamaño. El método `run()` maneja la entrada del usuario, moviendo el cuadrado en la dirección actual y ajustando el tamaño según las teclas presionadas. El juego se ejecuta hasta que el usuario presiona la tecla 'q'.
 
 ***
 
