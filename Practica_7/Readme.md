@@ -9,8 +9,8 @@ En la siguiente tabla se incluyen los enlaces de cada video publicado en YouTube
 
 |Integrante|Enlace directo|
 |:-:|:-:|
-|Peña Vargas Javier Andres|[Enlace]()|
+|Peña Vargas Javier Andres|[Enlace](https://youtu.be/TnH1TnZsvFE)|
 |Pimiento Escobar Miguel Fernando|[Enlace]()|
 |Robles Ardila Jorge Daniel|[Enlace](https://youtu.be/wA8ENsT0OAM)|
-|Sepulveda Tapias Juan Esteban|[Enlace]()|
+|Sepulveda Tapias Juan Esteban|[Enlace](https://youtu.be/AZEDbzV2zAs?si=ApHT_4LQC2c-bCMK)|
 |Yarce Prince Santiago|[Enlace]()|
