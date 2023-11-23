@@ -13,7 +13,7 @@ En la siguiente tabla se incluyen los enlaces de cada video publicado en YouTube
 |Pimiento Escobar Miguel Fernando|[Enlace](https://youtu.be/FY75jAO2H4o)|
 |Robles Ardila Jorge Daniel|[Enlace](https://youtu.be/wA8ENsT0OAM)|
 |Sepulveda Tapias Juan Esteban|[Enlace](https://youtu.be/AZEDbzV2zAs?si=ApHT_4LQC2c-bCMK)|
-|Yarce Prince Santiago|[Enlace]()|
+|Yarce Prince Santiago|[Enlace](https://www.youtube.com/watch?v=tCO5kZ5UurE&ab_channel=SantiagoYarcePrince)|
 
 ***
 
