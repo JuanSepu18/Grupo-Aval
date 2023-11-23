@@ -11,6 +11,6 @@ En la siguiente tabla se incluyen los enlaces de cada video publicado en YouTube
 |:-:|:-:|
 |Peña Vargas Javier Andres|[Enlace](https://github.com/JuanSepu18/Grupo-Aval/tree/main/Practica_2)|
 |Pimiento Escobar Miguel Fernando|[Enlace](https://github.com/JuanSepu18/Grupo-Aval/tree/main/Practica_1)|
-|Robles Ardila Jorge Daniel|[Enlace](https://github.com/JuanSepu18/Grupo-Aval/tree/main/Practica_3)|
+|Robles Ardila Jorge Daniel|[Enlace](https://youtu.be/wA8ENsT0OAM)|
 |Sepulveda Tapias Juan Esteban|[Enlace](https://github.com/JuanSepu18/Grupo-Aval/tree/main/Practica_4)|
 |Yarce Prince Santiago|[Enlace](https://github.com/JuanSepu18/Grupo-Aval/tree/main/Practica_5)|
