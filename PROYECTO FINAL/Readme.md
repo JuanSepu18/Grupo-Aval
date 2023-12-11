@@ -9,5 +9,5 @@ El poster creado fue el siguiente:
 
 Posteriormente, se explico la tematica haciendo uso del poster mostrado anteriormente, mediante formato de video subido a la plataforma de Youtube, explicando cada segmento del poster y analizando los aspectos mas importantes a tener en cuenta para la implementación del millicluster. El enlace al video es el siguiente:
 
-https://youtu.be/33ftjQEh0zE
+https://youtu.be/v9aXB3D18xA
 
